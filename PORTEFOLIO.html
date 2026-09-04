@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanis Vedeau // Portfolio BTS SIO SISR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img" alt="Vue agrandie">
+        <div id="modal-caption"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="brand"><span class="blink">></span> yanis.vedeau@sisr:~#</div>
+            <ul>
+                <li><a href="#presentation"><span class="cmd-num">01.</span> ./whoami</a></li>
+                <li><a href="#competences"><span class="cmd-num">02.</span> ./skills</a></li>
+                <li><a href="#stage"><span class="cmd-num">03.</span> ./stage_sdis17</a></li>
+                <li><a href="#tableau-e5"><span class="cmd-num">04.</span> ./grille_e5</a></li>
+                <li><a href="#engagements"><span class="cmd-num">05.</span> ./engagements</a></li>
+                <li><a href="#contact"><span class="cmd-num">06.</span> ./contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="presentation" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - presentation.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ cat whoami.txt</p>
+                <h1>USER: <span class="neon-text">Yanis Vedeau</span></h1>
+                <p class="role">[STATUS] : Étudiant @ BTS SIO SISR (Lycée Merleau-Ponty - Rochefort)</p>
+                <p class="role">[PROFIL] : Administrateur Systèmes & Réseaux | Sapeur-Pompier Volontaire & BNSSA</p>
+                <div class="console-box">
+                    <p>> Spécialisé dans l'infrastructure réseau (VLANs, Switchs Aruba/Alcatel, Fluke), le déploiement système (WDS/AD, NinjaOne RMM) et l'administration de bases de données (SQL/DBeaver, SIG).</p>
+                    <p>> Rigueur, réactivité et sang-froid forgés par un engagement opérationnel au SDIS 17 (SPV & Nageur Sauveteur).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - display_skills.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ ./get_capabilities.py</p>
+                <h2>COMPÉTENCES_TECHNIQUES & CERTIFICATIONS</h2>
+
+                <div class="grid-skills">
+                    <div class="skill-box">
+                        <div class="skill-title">🌐 NETWORK & INFRA</div>
+                        <ul>
+                            <li>Switchs Aruba 6000 & Alcatel-Lucent (VLANs, Trunk, MobaXterm)</li>
+                            <li>Procédure Password Recovery & Reconditionnement</li>
+                            <li>Câblage RJ45 T568B, baies & recettage Fluke MicroScanner</li>
+                            <li>Systèmes embarqués (BER, radios, antennes, caméras points hauts)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-box">
+                        <div class="skill-title">🖥️ SYSTEMS, DATA & RMM</div>
+                        <ul>
+                            <li>Windows Server, Active Directory, GPO & Serveur WDS</li>
+                            <li>RMM NinjaOne (Supervision & télédistribution automatisée)</li>
+                            <li>Bases de données SQL, requêtage & dédoublonnage (DBeaver)</li>
+                            <li>SIG (Systèmes d'Information Géographique / MyStart)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-box">
+                        <div class="skill-title">🎖️ CERTIFICATIONS & SECONDS</div>
+                        <ul>
+                            <li><strong>BNSSA</strong> (Brevet National de Sécurité et Sauvetage Aquatique)</li>
+                            <li><strong>PSE1 & PSE2</strong> (Premiers Secours en Équipe - SDIS 17)</li>
+                            <li><strong>Certification Pix</strong> (501 points)</li>
+                            <li>Brevet National de Jeune Sapeur-Pompier (JSP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - stage_sdis17_log.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ ./load_stage_details.sh --target=SDIS17_NUMERIQUE --duration=6_WEEKS</p>
+                
+                <div class="stage-title-wrapper">
+                    <h2>STAGE_1ÈRE_ANNÉE <span class="tag">[05/2026 - 06/2026]</span></h2>
+                    <div class="sdis-badge">
+                        <span class="pulse-dot"></span> ORGANISATION: SDIS 17 (Groupement Numérique & Transmissions)
+                    </div>
+                </div>
+
+                <div class="grid-stage">
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">💻</span>
+                            <span>[S1] WDS, RMM NinjaOne & Postes</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">WDS</span>
+                            <span class="tech-badge">Active Directory</span>
+                            <span class="tech-badge">NinjaOne</span>
+                        </div>
+                        <ul>
+                            <li><strong>Déploiement WDS/AD :</strong> Enrôlement de postes sur le domaine Active Directory via serveur WDS du SDIS.</li>
+                            <li><strong>Migration CIS La Rochelle-Villeneuve :</strong> Préparation et migration des données utilisateurs pour le renouvellement du parc.</li>
+                            <li><strong>RMM NinjaOne :</strong> Prise en main de l'outil, télédistribution d'applications (paquets VLC) et configuration IP d'imprimantes distantes.</li>
+                            <li><strong>Déploiement matériel :</strong> Raccordement de moniteurs sur les sites de l'Île de Ré et l'Île d'Oléron.</li>
+                        </ul>
+                        
+                        <div class="media-grid">
+                            <div class="media-preview">
+                                <div class="img-container">
+                                    <img src="assets/images/IMG_2946.jpg" alt="Atelier de préparation des postes" class="zoomable-img">
+                                </div>
+                                <span class="media-caption">Atelier de préparation des postes</span>
+                            </div>
+                            <div class="media-preview">
+                                <div class="img-container">
+                                    <img src="assets/images/IMG_2992.jpg" alt="Sélection des applications MDT" class="zoomable-img">
+                                </div>
+                                <span class="media-caption">Sélection des applications MDT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">🔌</span>
+                            <span>[S2] Projet NexSIS & Câblage Fluke</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">NexSIS</span>
+                            <span class="tech-badge">T568B / Keystone</span>
+                            <span class="tech-badge">Fluke MicroScanner²</span>
+                        </div>
+                        <ul>
+                            <li><strong>Chantier câblage (CIS Villeneuve) :</strong> Perçage, tirage de 10 liaisons réseau et raccordement sur noyaux blindés à la norme T568B.</li>
+                            <li><strong>Repérage & Brassage :</strong> Intégration sur bandeau Pouyet et affectation des ports (PC NexSIS, imprimante d'alerte, boîtier Sysbox).</li>
+                            <li><strong>Recette & Qualification :</strong> Test de continuité Wiremap et mesure de longueur (15.6m) validés au Fluke MicroScanner².</li>
+                        </ul>
+                        
+                        <div class="media-grid">
+                            <div class="media-preview">
+                                <div class="img-container">
+                                    <img src="assets/images/IMG_3050.jpg" alt="Raccordement noyau RJ45 T568B" class="zoomable-img">
+                                </div>
+                                <span class="media-caption">Sertissage T568B</span>
+                            </div>
+                            <div class="media-preview">
+                                <div class="img-container">
+                                    <img src="assets/images/IMG_3069.jpg" alt="Faisceau de câbles réseau avant brassage" class="zoomable-img">
+                                </div>
+                                <span class="media-caption">Brassage Baie NexSIS</span>
+                            </div>
+                            <div class="media-preview">
+                                <div class="img-container">
+                                    <img src="assets/images/IMG_3080.jpg" alt="Recette Fluke MicroScanner à 15.6m" class="zoomable-img">
+                                </div>
+                                <span class="media-caption">Recette Fluke (15.6m)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">🌐</span>
+                            <span>[S3] Maquettage Aruba & Maintenance</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">Aruba 6000</span>
+                            <span class="tech-badge">VLANs / Trunk</span>
+                            <span class="tech-badge">CTA-CODIS</span>
+                        </div>
+                        <ul>
+                            <li><strong>Lab Switchs Aruba 6000 :</strong> Configuration via MobaXterm (VLAN 10 Admin, VLAN 20 Ops, Trunk ports 23/24, DHCP) et validation de l'isolement inter-VLAN.</li>
+                            <li><strong>Maintenance de proximité :</strong> Remplacement de 5 PC et 3 Écrans Interactifs (CFIS, Ars-en-Ré, La Flotte) + sonorisation d'alerte (Gémozac, La Tremblade).</li>
+                            <li><strong>Audits & Métier :</strong> Prérequis NexSIS à Marennes/Royan, étude Fibre Noire dédiée (Systel) et immersion au CTA-CODIS.</li>
+                        </ul>
+                    </div>
+
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">🚒</span>
+                            <span>[S4] NexSIS sur site & Atelier Sysbox</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">Sysbox (Systel)</span>
+                            <span class="tech-badge">Aruba Production</span>
+                            <span class="tech-badge">Sonorisation</span>
+                        </div>
+                        <ul>
+                            <li><strong>Déploiement NexSIS (St-Martin-de-Ré & Marans) :</strong> Intégration des boîtiers d'interface Sysbox, boîtiers d'acquittement et consoles d'alerte.</li>
+                            <li><strong>Mise en production :</strong> Décommissionnement du câblage obsolète et intégration en baie du switch Aruba 6000 préparé en Lab S3.</li>
+                            <li><strong>Atelier & Sonorisation :</strong> Diagnostic de panne sur Sysbox défectueuse et câblage complet de haut-parleurs d'alerte à St-Martin-de-Ré.</li>
+                        </ul>
+                    </div>
+
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">🛰️</span>
+                            <span>[S5] Systèmes Embarqués & Alcatel</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">BER / Radios</span>
+                            <span class="tech-badge">Caméras Feux</span>
+                            <span class="tech-badge">Password Recovery</span>
+                        </div>
+                        <ul>
+                            <li><strong>Caméras feux de forêt :</strong> Maintenance préventive sur châteaux d'eau/tours de guet (Ré/Oléron) et vérification des flux vidéo vers l'État-Major.</li>
+                            <li><strong>Systèmes embarqués :</strong> Remplacement de 14 BER (CIS Villeneuve), dépannage GPS/Radios (Rochefort) et maj firmwares en atelier.</li>
+                            <li><strong>Reconditionnement Alcatel :</strong> Procédure de Password Recovery par liaison console série et reset d'usine de switchs Alcatel 24 ports.</li>
+                        </ul>
+                    </div>
+
+                    <div class="node-card highlight-border">
+                        <div class="node-header">
+                            <span class="icon">🗄️</span>
+                            <span>[S6] Mises à jour, BDD SQL & SIG</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-badge">Firmware Aruba</span>
+                            <span class="tech-badge">DBeaver / SQL</span>
+                            <span class="tech-badge">SIG / MyStart</span>
+                        </div>
+                        <ul>
+                            <li><strong>Maintenance réseau & dépose :</strong> Mises à jour de firmware sur 6 switchs Aruba 6000CX (48p) et retrait d'anciennes antennes bips et switchs obsolètes.</li>
+                            <li><strong>Analyse BDD (DBeaver) :</strong> Étude de la structure des tables RH/Ops, contrôle d'intégrité et dédoublonnage de données via outil interne.</li>
+                            <li><strong>SIG (Cartographie) :</strong> Traitement et intégration des données cartographiques pour l'application de navigation opérationnelle MyStart.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tableau-e5" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - matrix_e5.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ ./render_e5_grid.py --student="Yanis Vedeau"</p>
+                <h2>TABLEAU_DE_SYNTHÈSE_E5 <span class="tag">[OPTION SISR]</span></h2>
+
+                <div class="download-container">
+                    <span>> DOCUMENT_OFFICIEL_JURY_E5.PDF</span>
+                    <a href="assets/tableau-de-synthese-E5.pdf" class="cyber-btn" target="_blank" download>[DOWNLOAD_E5_GRID]</a>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="cyber-table">
+                        <thead>
+                            <tr>
+                                <th class="col-main">Réalisations Professionnelles</th>
+                                <th>Période</th>
+                                <th>Gérer le patrimoine</th>
+                                <th>Incidents & Demandes</th>
+                                <th>Présence en ligne</th>
+                                <th>Mode projet</th>
+                                <th>Service à dispo.</th>
+                                <th>Dev. personnel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="group-header">
+                                <td colspan="8">// MISSION_STAGE_SDIS_17 (CARNET DE BORD 6 SEMAINES)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S1 : Enrôlement WDS/AD, migration de données (CIS Villeneuve), télédistribution NinjaOne et installation de moniteurs</td>
+                                <td>05/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S2 : Câblage structure réseau NexSIS (10 prises RJ45 T568B, baie), recette au testeur Fluke MicroScanner²</td>
+                                <td>05/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S3 : Maquettage en Lab de switchs Aruba 6000 (VLANs/Trunk/MobaXterm), maintenance ENI/sonorisation et immersion CTA-CODIS</td>
+                                <td>05/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S4 : Intégration matérielle infrastructure NexSIS (Sysbox, boîtiers d'acquittement), mise en production Aruba et diagnostic atelier</td>
+                                <td>06/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S5 : Maintenance préventive/corrective équipements feux de forêt (caméras/points hauts), embarqués (BER/radios) et Password Recovery Alcatel</td>
+                                <td>06/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">S6 : Mises à jour de firmwares switchs Aruba, analyse/dédoublonnage de tables SQL (DBeaver) et intégration de données SIG (MyStart)</td>
+                                <td>06/2026</td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                                <td class="active-cell">[X]</td>
+                                <td class="active-cell">[X]</td>
+                                <td></td>
+                            </tr>
+
+                            <tr class="group-header">
+                                <td colspan="8">// MISSIONS_DEUXIÈME_ANNÉE</td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" class="locked-row">--- [LOCKED / PENDING_YEAR_2] ---</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="engagements" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - engagements.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ ./get_background.sh</p>
+                <h2>ENGAGEMENTS & EXPÉRIENCES</h2>
+
+                <div class="grid-stage">
+                    <div class="node-card">
+                        <div class="node-header">[SECOURS] Nageur Sauveteur SDIS 17</div>
+                        <p class="role">Saisonnier (07/2026 - 08/2026)</p>
+                        <ul>
+                            <li>Surveillance des zones de baignade et sauvetage aquatique.</li>
+                            <li>Application des gestes de premiers secours (PSE1/PSE2).</li>
+                        </ul>
+                    </div>
+
+                    <div class="node-card">
+                        <div class="node-header">[ENGAGEMENT] Sapeur-Pompier Volontaire</div>
+                        <p class="role">CIS Rochefort (Depuis 07/2025)</p>
+                        <ul>
+                            <li>Opérationnel en secours à personne et incendie.</li>
+                            <li>Brevet National de JSP obtenu après 3 ans de formation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="node-card">
+                        <div class="node-header">[HONNEURS & ASSOCIATIF]</div>
+                        <p class="role">Distinctions et Bénévolat</p>
+                        <ul>
+                            <li>Lauréat du Prix du Jeune Méritant (Ordre National du Mérite).</li>
+                            <li>Bénévoles Cashless @ Stéréo Parc (Gestion terminaux NFC).</li>
+                            <li>Volontaire Service National Universel (SNU).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="terminal-card">
+            <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="card-title">bash - connect.sh</span>
+            </div>
+            <div class="card-body">
+                <p class="prompt">$ ./ping_host.sh --user="Yanis Vedeau"</p>
+                <h2>ME_CONTACTER</h2>
+                <div class="contact-grid">
+                    <p>📧 EMAIL    : <a href="mailto:yanis.vedeau@outlook.fr">yanis.vedeau@outlook.fr</a></p>
+                    <p>📞 PHONE    : 06 04 10 64 97</p>
+                    <p>📍 LOCATION : St-Agnant (17) | Permis B</p>
+                    <p>🐙 GITHUB   : <a href="https://github.com/yanisvedeau-lgtm" target="_blank">github.com/yanisvedeau-Igtm</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>SYSTEM_STATUS: ONLINE // YANIS VEDEAU PORTFOLIO SISR 2026 // ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
