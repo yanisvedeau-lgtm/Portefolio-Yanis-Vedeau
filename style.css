@@ -772,3 +772,51 @@ footer {
     font-family: 'Fira Code', monospace;
     text-align: center;
 }
+/* Conteneur d'image positionné pour accueillir le badge */
+.img-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Image avec transition fluide */
+.zoomable-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Overlay sombre au survol */
+.img-container:hover .zoomable-img {
+    transform: scale(1.03);
+    filter: brightness(0.7);
+}
+
+/* Badge avec la loupe et le texte survol */
+.img-container::after {
+    content: "🔍 Zoom";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.85);
+    color: #00ff66;
+    border: 1px solid #00ff66;
+    padding: 6px 12px;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+}
+
+/* Affichage de la loupe au survol */
+.img-container:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
