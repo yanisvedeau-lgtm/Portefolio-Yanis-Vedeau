@@ -564,3 +564,110 @@ footer {
 .media-grid .media-preview {
     flex: 1;
 }
+.excel-wrapper {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    background-color: #0b0e14;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.excel-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #d0d0d0;
+    border: 2px solid #238636; /* Bordure extérieure style tableur */
+}
+
+.excel-table th, .excel-table td {
+    border: 1px solid #30363d;
+    padding: 8px;
+    text-align: center;
+}
+
+/* En-tête diagonale */
+.excel-diagonal {
+    position: relative;
+    width: 320px;
+    height: 140px;
+    background: linear-gradient(to top right, transparent calc(50% - 1px), #484f58 50%, transparent calc(50% + 1px));
+    text-align: left !important;
+    vertical-align: top;
+    padding: 0 !important;
+}
+
+.diag-top {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-weight: bold;
+    color: #58a6ff;
+    font-size: 0.75rem;
+}
+
+.diag-bottom {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-weight: bold;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+/* En-têtes verticaux (effet Excel à 90°) */
+.v-header {
+    height: 140px;
+    white-space: nowrap;
+    vertical-align: bottom;
+    padding-bottom: 15px !important;
+    background-color: #161b22;
+}
+
+.v-header > span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: left;
+    font-weight: bold;
+    color: #f0f6fc;
+    letter-spacing: 0.5px;
+}
+
+/* Lignes de section (1ère année, 2ème année) */
+.excel-section td {
+    background-color: #1f242c;
+    color: #3fb950;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Colonnes d'action */
+.excel-cell-title {
+    text-align: left !important;
+    color: #e6edf3;
+    line-height: 1.4;
+}
+
+.excel-cell-title small {
+    color: #8b949e;
+    display: block;
+    margin-top: 3px;
+}
+
+.excel-date {
+    white-space: nowrap;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+/* Les X style Excel */
+.excel-x {
+    color: #3fb950 !important;
+    font-weight: 900;
+    font-size: 1.2rem;
+    background-color: rgba(63, 185, 80, 0.05);
+}
