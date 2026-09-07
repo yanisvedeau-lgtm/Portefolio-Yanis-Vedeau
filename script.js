@@ -120,3 +120,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalCaption = document.getElementById("modal-caption");
+    const closeBtn = document.getElementById("modal-close");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    // Récupère toutes les images cliquables du DOM
+    const images = Array.from(document.querySelectorAll(".zoomable-img"));
+    let currentIndex = 0;
+
+    // Fonction pour afficher une image dans la modale
+    function showImage(index) {
+        if (index < 0) {
+            currentIndex = images.length - 1;
+        } else if (index >= images.length) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+
+        const selectedImg = images[currentIndex];
+        modalImg.src = selectedImg.src;
+        modalCaption.textContent = selectedImg.alt || "";
+    }
+
+    // Ouvrir la modale au clic sur une image
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            showImage(index);
+        });
+    });
+
+    // Navigation avec les boutons
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+    });
+
+    // Fermeture de la modale
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Navigation au clavier (Flèches gauche/droite + Échap)
+    document.addEventListener("keydown", (e) => {
+        if (modal.style.display === "flex") {
+            if (e.key === "ArrowLeft") {
+                showImage(currentIndex - 1);
+            } else if (e.key === "ArrowRight") {
+                showImage(currentIndex + 1);
+            } else if (e.key === "Escape") {
+                modal.style.display = "none";
+            }
+        }
+    });
+});
