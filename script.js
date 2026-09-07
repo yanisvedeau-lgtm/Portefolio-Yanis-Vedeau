@@ -61,79 +61,45 @@ document.addEventListener('DOMContentLoaded', () => {
         element.addEventListener('click', () => playBeep(600, 'sawtooth', 0.08));
     });
 
-    // 4. FILTRE DYNAMIQUE SUR LE TABLEAU E5
-    const tableRows = document.querySelectorAll('.cyber-table tbody tr:not(.group-header)');
-    const filterInput = document.createElement('input');
+    // 4. FILTRE DYNAMIQUE SUR LE TABLEAU E5 (Cible tes barres de recherche HTML)
+    const filterInputs = document.querySelectorAll('input[type="text"]');
     
-    filterInput.type = 'text';
-    filterInput.placeholder = '🔍 Filtrer les réalisations / compétences...';
-    filterInput.className = 'cyber-filter-input';
-
-    const tableWrapper = document.querySelector('.download-container');
-    if (tableWrapper) {
-        tableWrapper.appendChild(filterInput);
-    }
-
-    filterInput.addEventListener('keyup', (e) => {
-        const query = e.target.value.toLowerCase();
-        tableRows.forEach(row => {
-            const text = row.innerText.toLowerCase();
-            if (text.includes(query)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
-
-    // 5. LIGHTBOX / ZOOM DES IMAGES DU STAGE
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-img");
-    const captionText = document.getElementById("modal-caption");
-    const closeBtn = document.querySelector(".modal-close");
-
-    document.querySelectorAll('.zoomable-img').forEach(img => {
-        img.addEventListener('click', function() {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            const caption = this.closest('.media-preview')?.querySelector('.media-caption');
-            captionText.innerHTML = caption ? caption.innerHTML : this.alt;
-            playBeep(900, 'sine', 0.06);
-        });
-    });
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
-    }
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    filterInputs.forEach(input => {
+        // Vérifie qu'il s'agit bien de la barre de recherche (basé sur le placeholder ou une classe)
+        if (input.placeholder.includes('Filtrer') || input.classList.contains('cyber-filter-input')) {
+            input.addEventListener('keyup', (e) => {
+                const query = e.target.value.toLowerCase();
+                // Sélectionne toutes les lignes du tableau E5
+                const tableRows = document.querySelectorAll('table tr, tbody tr');
+                
+                tableRows.forEach(row => {
+                    // Ignore les lignes d'en-tête (th)
+                    if (row.querySelector('th')) return;
+                    
+                    const text = row.innerText.toLowerCase();
+                    if (text.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
         }
     });
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "block") {
-            modal.style.display = "none";
-        }
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
+    // 5. LIGHTBOX / ZOOM ET NAVIGATION DES IMAGES (MODALE)
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const modalCaption = document.getElementById("modal-caption");
-    const closeBtn = document.getElementById("modal-close");
+    const closeBtn = document.getElementById("modal-close") || document.querySelector(".modal-close");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
 
-    // Récupère toutes les images cliquables du DOM
     const images = Array.from(document.querySelectorAll(".zoomable-img"));
     let currentIndex = 0;
 
-    // Fonction pour afficher une image dans la modale
     function showImage(index) {
+        if (images.length === 0) return;
         if (index < 0) {
             currentIndex = images.length - 1;
         } else if (index >= images.length) {
@@ -143,46 +109,58 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const selectedImg = images[currentIndex];
-        modalImg.src = selectedImg.src;
-        modalCaption.textContent = selectedImg.alt || "";
+        if (modalImg && selectedImg) {
+            modalImg.src = selectedImg.src;
+            if (modalCaption) {
+                const caption = selectedImg.closest('.media-preview')?.querySelector('.media-caption');
+                modalCaption.innerHTML = caption ? caption.innerHTML : (selectedImg.alt || "");
+            }
+        }
     }
 
-    // Ouvrir la modale au clic sur une image
     images.forEach((img, index) => {
         img.addEventListener("click", () => {
-            modal.style.display = "flex";
-            showImage(index);
+            if (modal) {
+                modal.style.display = "flex";
+                showImage(index);
+                playBeep(900, 'sine', 0.06);
+            }
         });
     });
 
-    // Navigation avec les boutons
-    prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showImage(currentIndex - 1);
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showImage(currentIndex - 1);
+        });
+    }
 
-    nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showImage(currentIndex + 1);
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showImage(currentIndex + 1);
+        });
+    }
 
-    // Fermeture de la modale
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            if (modal) modal.style.display = "none";
+        });
+    }
 
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 
-    // Navigation au clavier (Flèches gauche/droite + Échap)
     document.addEventListener("keydown", (e) => {
-        if (modal.style.display === "flex") {
-            if (e.key === "ArrowLeft") {
+        if (modal && modal.style.display === "flex" || modal && modal.style.display === "block") {
+            if (e.key === "ArrowLeft" && prevBtn) {
                 showImage(currentIndex - 1);
-            } else if (e.key === "ArrowRight") {
+            } else if (e.key === "ArrowRight" && nextBtn) {
                 showImage(currentIndex + 1);
             } else if (e.key === "Escape") {
                 modal.style.display = "none";
